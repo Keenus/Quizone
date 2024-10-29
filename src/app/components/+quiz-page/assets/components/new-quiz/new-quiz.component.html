@@ -1,0 +1,20 @@
+<h1 class="text-3xl font-bold mb-6 text-center">Quiz Game</h1>
+
+@if (!quizStarted) {
+  <add-question (questionAdded)="onQuestionAdded()"></add-question>
+  <div class="text-center mt-4">
+    @if (questionCount > 0) {
+      <button
+        (click)="startQuiz()"
+        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        Start Quiz
+      </button>
+    }
+  </div>
+}
+
+@if (quizStarted) {
+  <quiz-game
+    (quizEnded)="onQuizEnded()">
+  </quiz-game>
+}
