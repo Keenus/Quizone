@@ -1,21 +1,30 @@
-<div class="mx-auto">
+<div class="mx-auto fixed top-0 w-full">
   <!-- Top Navigation Bar -->
-  <nav class="bg-white">
+  <nav class="bg-indigo-600 bg-opacity-50 text-white">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
 
       <!-- Logo Section -->
-      <a href="/" class="text-2xl font-bold text-indigo-600">QuiZone</a>
+      <a href="/" class="text-2xl font-bold text-white">QuiZone</a>
 
       <!-- Navigation Links -->
       <div class="hidden md:flex gap-8 items-center">
-        <a href="/" class="text-gray-800 hover:text-indigo-600 transition">Home</a>
-        <a href="/about" class="text-gray-800 hover:text-indigo-600 transition">About</a>
-        <a href="/quizzes" class="text-gray-800 hover:text-indigo-600 transition">Quizzes</a>
-        <a href="/contact" class="text-gray-800 hover:text-indigo-600 transition">Contact</a>
+        <a href="/" class="transition hover:transform hover:-translate-y-1 px-2">
+            Strona główna
+        </a>
+        <a href="/about" class="transition hover:transform hover:-translate-y-1 px-2">
+          O nas
+        </a>
+        <a href="/quizzes" class="transition hover:transform hover:-translate-y-1 px-2">
+          Quizy
+        </a>
+        <a href="/contact" class="transition hover:transform hover:-translate-y-1 px-2">
+          Kontakt
+        </a>
+
       </div>
 
       <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden text-indigo-600 focus:outline-none" (click)="toggleMobileMenu()">
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none" (click)="toggleMobileMenu()">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
@@ -23,7 +32,7 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+    <div id="mobile-menu" class="md:hidden bg-gray-50  border-t border-gray-200 hidden">
       <a href="/" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Home</a>
       <a href="/about" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">About</a>
       <a href="/quizzes" class="block px-6 py-3 text-gray-800 hover:bg-gray-100">Quizzes</a>
@@ -31,7 +40,7 @@
     </div>
   </nav>
 
-  <div class="mx-auto bg-white text-balance">
+  <div class="outlet mx-auto text-balance flex flex-col justify-center">
     <router-outlet></router-outlet>
   </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {SolidIconsModule} from "@dimaslz/ng-heroicons";
 import {RouterLink} from "@angular/router";
 
@@ -13,5 +13,4 @@ import {RouterLink} from "@angular/router";
   styleUrl: './quiz-page.component.scss'
 })
 export class QuizPageComponent {
-
 }

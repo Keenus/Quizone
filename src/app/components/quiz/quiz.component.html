@@ -1,9 +1,9 @@
-<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="bg-gray-50  p-6 rounded-lg shadow-md">
   <div *ngIf="!quizCompleted">
     <div class="mb-4">
-      <h2 class="text-xl font-bold">Question {{currentQuestionIndex + 1}} of {{questions.length}}</h2>
+      <h2 class="text-sm font-bold">Pytanie {{currentQuestionIndex + 1}} z {{questions.length}}</h2>
       <div class="mt-4">
-        <p class="text-lg">{{currentQuestion.text}}</p>
+        <p class="text-2xl font-bold">{{currentQuestion.text}}</p>
         <div class="mt-4 space-y-2">
           <div *ngFor="let option of currentQuestion.options" class="flex items-center">
             <input
@@ -23,47 +23,54 @@
       <button
         *ngIf="currentQuestionIndex > 0"
         (click)="previousQuestion()"
-        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+        class="px-4 py-2 bg-gray-500 rounded hover:bg-gray-600"
       >
-        Previous
+        Poprzednie
       </button>
       <button
         *ngIf="currentQuestionIndex < questions.length - 1"
         (click)="nextQuestion()"
-        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        class="px-4 py-2 bg-blue-500 rounded hover:bg-blue-600"
         [disabled]="!selectedAnswer"
       >
-        Next
+        Następne
       </button>
       <button
         *ngIf="currentQuestionIndex === questions.length - 1"
         (click)="finishQuiz()"
-        class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+        class="px-4 py-2 bg-green-500 rounded hover:bg-green-600"
         [disabled]="!selectedAnswer"
       >
-        Finish Quiz
+        Zakończ Quiz
       </button>
     </div>
   </div>
 
   <div *ngIf="quizCompleted" class="text-center">
-    <h2 class="text-2xl font-bold mb-4">Quiz Results</h2>
-    <p class="text-xl mb-4">Your Score: {{score}} out of {{questions.length}}</p>
+    <h2 class="text-2xl font-bold mb-4">
+      Ukończone! Gratulacje! 🎉
+    </h2>
+    <p class="text-xl mb-4">
+      Twój wynik to : {{score}} / {{questions.length}}</p>
 
     <div class="mt-6 text-left">
-      <h3 class="text-xl font-bold mb-4">Review Answers:</h3>
+      <h3 class="text-xl font-bold mb-4">
+        Odpowiedzi:
+      </h3>
       <div *ngFor="let question of questions; let i = index" class="mb-4 p-4 rounded" [ngClass]="{'bg-green-100': userAnswers[i] === question.correctAnswer, 'bg-red-100': userAnswers[i] !== question.correctAnswer}">
         <p class="font-bold">{{i + 1}}. {{question.text}}</p>
-        <p>Your answer: {{userAnswers[i]}}</p>
-        <p>Correct answer: {{question.correctAnswer}}</p>
+        <p>
+          Twój wybór: {{userAnswers[i]}}</p>
+        <p>
+          Poprawna odpowiedź: {{question.correctAnswer}}</p>
       </div>
     </div>
 
     <button
       (click)="restartQuiz()"
-      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mt-4"
+      class=" text-white px-4 py-2 bg-blue-500 rounded hover:bg-blue-600 mt-4"
     >
-      Start New Quiz
+      Nowy Quiz
     </button>
   </div>
 </div>
